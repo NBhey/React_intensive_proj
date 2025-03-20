@@ -1,0 +1,32 @@
+form{
+    background-color: rgba(233, 211, 191, 0.953)
+}
+.inputs{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.inputs > input{
+    margin-top: 15px;
+    width: 20vw;
+    padding-top: 2vh;
+    background-color: rgb(172, 212, 182);
+    outline: none;
+    border-bottom: solid;
+    text-align: bottom;
+}
+.inputs > input::placeholder{
+    transform: translateX(0px); 
+    transition: all .5s ease;
+}
+.inputs > input:focus::placeholder{
+    transform: translateX(40vw);
+    transition: all .5s ease;
+}
+
+.inputs>input:last-child{
+    margin-bottom: 15px;
+}
+
+
