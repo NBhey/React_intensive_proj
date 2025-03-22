@@ -1,5 +1,6 @@
 form{
-    background-color: rgba(233, 211, 191, 0.953)
+    background-color: rgba(233, 211, 191, 0.953);
+    padding: 35vh 20px;
 }
 .inputs{
     display: flex;
@@ -11,10 +12,16 @@ form{
     margin-top: 15px;
     width: 20vw;
     padding-top: 2vh;
-    background-color: rgb(172, 212, 182);
+    background-color: transparent;
     outline: none;
     border-bottom: solid;
     text-align: bottom;
+    border: none;
+    border-bottom: 3px solid rgb(151, 206, 211);
+    color: black;
+    border-radius: 3px;
+    transform: translateX(0);
+    transition: all .5s ease;
 }
 .inputs > input::placeholder{
     transform: translateX(0px); 
