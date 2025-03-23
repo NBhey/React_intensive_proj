@@ -1,6 +1,11 @@
 form{
     background-color: rgba(233, 211, 191, 0.953);
-    padding: 35vh 20px;
+    /* padding: 35vh 20px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 .inputs{
     display: flex;
