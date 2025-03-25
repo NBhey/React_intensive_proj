@@ -1,0 +1,31 @@
+.container_suggestion{
+    position: absolute;
+    /* display: none; */
+    
+}
+.suggestion{
+    
+    width: calc(100%-6px);
+    margin: 0;
+    padding:  0;
+    border-radius: 0 0 15px 15px;
+    border-bottom: 3px solid #78A678;
+    border-left: 3px solid #78A678;
+    border-right: 3px solid #78A678;
+    overflow: hidden;
+    z-index: 5;
+}
+.suggestion_item{
+    
+    text-align: left;
+    cursor: pointer;
+    padding: 10px 20px;
+    
+    
+}
+.suggestion_item span{
+    display: inline-block;
+}
+.suggestion_item:hover{
+    background-color: #78A678;
+}

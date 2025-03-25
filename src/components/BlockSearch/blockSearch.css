@@ -1,0 +1,9 @@
+.blockSearch{
+    width: 100%;
+    background-image: url('../../assets/images/backgroundSearch.jpg') ;
+    height: 20%;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+}
