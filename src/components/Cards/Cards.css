@@ -1,0 +1,9 @@
+.Cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width: 1200px;
+    gap: 45px;
+    padding: 40px;
+    list-style: none;
+    margin: 0 auto;
+  }
