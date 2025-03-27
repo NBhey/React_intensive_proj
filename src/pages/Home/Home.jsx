@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import { LogStateContext } from '../../Providers/LogState'
 import axios from 'axios'
+import Card from '../../components/Card/Card'
 
 const Home = () => {
     const [data, setData] = useState([])
@@ -8,15 +9,8 @@ const Home = () => {
     const [loading, setLoading] = useState(false)
     const [hasMore, setHasMore] = useState(true)
     const observer = useRef()
-    // const [lib, setLib] = useState(null)
     
-    // useEffect(()=>{
-    //     axios.get('https://gutendex.com/books')
-    //     .then(response => setLib(response.data.results))
-    //     .catch(error => alert(error))
-    // }, [])
     
-    // lib&&console.log(lib)
     const fetchData = async (page) =>{
         setLoading(true)
         try{
@@ -25,6 +19,7 @@ const Home = () => {
                     setData((prevData)=>
                         [...prevData, ...response.data.results]
                     )
+                    
                     setHasMore(response.data.results.length>0)
                 })
             
@@ -38,26 +33,28 @@ const Home = () => {
         }
         
    } 
-   useEffect(()=>{
-    fetchData(page)
-   }, [page])
+        useEffect(()=>{
+            fetchData(page)
+        }, [page])
 
-   const lastItemRef = (node) =>{
-    if(loading) return;
+        const lastItemRef = (node) =>{
+            if(loading) return;
 
-    if(observer.current) observer.current.disconnect();
+            if(observer.current) observer.current.disconnect();
 
-    observer.current = new IntersectionObserver((entries)=>{
-        if(entries[0].isIntersecting && hasMore){
-            setPage((prevPage)=>{
-                return prevPage +1
+            observer.current = new IntersectionObserver((entries)=>{
+                if(entries[0].isIntersecting && hasMore){
+                    setPage((prevPage)=>{
+                        return prevPage +1
+                    })
+                }
             })
+
+            if(node) observer.current.observe(node)
+
         }
-    })
 
-    if(node) observer.current.observe(node)
-
-   }
+        
     const user = JSON.parse(localStorage.getItem('user'))
     const {isAuth, login, logout} = useContext(LogStateContext)
     let headerPhrase = null
@@ -68,8 +65,13 @@ const Home = () => {
     }
 
     const booksArr = data && data.map((item, index)=>{
+            
         return (
-            <li key={index} ref={index === data.length - 1 ? lastItemRef : null}>{item.title}</li>
+            <Card 
+                scrollRefferal = {index === data.length - 1 ? lastItemRef : null}
+                bookName = {item.title}
+                bookAuthor = {item.authors[0]?.name? item.authors[0].name:item.authors[0]='unknown author'}
+                />
         )
     })
 
