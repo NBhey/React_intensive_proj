@@ -19,7 +19,5 @@ function App() {
         </Routes>
       </Router>
     </LogState>
-  );
-}
 
 export default App;
