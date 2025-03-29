@@ -1,0 +1,17 @@
+.App {
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  
+}
+
+.wrapper{
+  width: 900px;
+  margin: 0 auto;
+}
+
+ul{
+  list-style-type: none;
+}
+
