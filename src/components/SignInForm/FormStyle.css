@@ -1,0 +1,133 @@
+.wrapper{
+    background-color: #F8F4E7;
+    height: 94vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.wrapper > form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 75%;
+    width: 31%;
+    background-color: #78A678;
+    border-radius: 30px;
+    color: white;
+    font-size: 52px;
+    font-weight: 800;
+    padding: 10px 30px;
+    text-align: center;
+}
+.inputs{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all .5s ease;
+    font-size: 20px;
+    width: 540px;
+}
+.inputs > input{
+    margin-top: 15px;
+    width: 97%;
+    height: 100px;
+    font-size: 20px;
+    transition: all .5s ease;
+    border-radius: 15px;
+    padding: 10px;
+    border: none;
+    outline: none;
+}
+.inputs > input::placeholder{
+    transform: translateX(0px); 
+    transition: all .5s ease;
+    color: #78A678;
+}
+
+.inputs > input:focus::placeholder{
+    transform: translateX(40vw);
+    transition: all .5s ease;
+}
+
+.inputs>input:last-child{
+    margin-bottom: 15px;
+}
+
+.inputs > p {
+    color: red;
+    transition: all .5s ease;
+}
+.input-error>input{
+    background-color: white;
+    color:red;
+    border: 1px solid red;
+    transition: all .5s ease;
+}
+span{
+    color: red;
+    font-size: 20px;
+    
+}
+.signIn--buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 30px;
+    width: 540px;
+}
+.signIn--buttons > button{
+    width: 100%;
+    height: 105px;
+    background-color: #846545;
+    margin-bottom: 20px;
+    color: white;
+    font-size: 30px;
+    font-weight: bold;
+    transition: all 1s ease;
+    padding: 10px;
+}
+.signIn--buttons > button:hover{
+    background-color: white;
+    color: #846545;
+}
+.wrongPass{
+    animation-name: open;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    animation-delay: 0s;
+}
+.none{
+    display: block;
+    opacity: 0;
+    visibility: hidden
+    
+}
+
+@keyframes open {
+    0% {
+      display: block;
+      opacity: 0;
+      visibility: hidden;
+    }
+    50%{
+        display: block;
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        display: block;
+        opacity: 0;
+        visibility: hidden;
+    }
+  }
+
+
