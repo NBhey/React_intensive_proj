@@ -7,12 +7,12 @@ function Header() {
       <header className="header">
         <div className="header-wrapper">
           <div className="header__logo">
-            <a href="#">BookHome</a>
+            <a href="/#">BookHome</a>
           </div>
 
           <nav className="header__navigation">
-            <a href="#"> История </a>
-            <a href="#"> Избранное </a>
+            <a href="#/"> История </a>
+            <a href="#/"> Избранное </a>
             <div className="header__button">
               <Button type="signIn" />
               <Button type="signOut" />

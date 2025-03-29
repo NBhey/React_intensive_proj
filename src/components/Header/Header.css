@@ -36,7 +36,7 @@ a {
 
 .header__navigation {
   display: flex;
-  gap: 20px;
+  gap: 35px;
   justify-content: space-evenly;
   align-items: center;
   max-width: 600px;
