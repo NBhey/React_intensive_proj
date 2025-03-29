@@ -1,7 +1,6 @@
 import "./Card.css"
 
 const Card = ({card}) => {
-    console.log(card);
     return (
       <li>
         <h3>{card.title}</h3>

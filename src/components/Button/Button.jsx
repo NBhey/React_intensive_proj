@@ -1,7 +1,7 @@
-import signUpIcon from "./login-2-svgrepo-com.svg"; // Импорт SVG
-import signInIcon from "./login-svgrepo-com.svg";
+import exitIcon from "./выход.svg"; // Импорт SVG
+import signInIcon from "./вход.svg";
 
-function Button({type, onClick}) {
+function Button({type}) {
     const buttonStyle = {
         border: "none",
         outline: "none",
@@ -11,10 +11,10 @@ function Button({type, onClick}) {
         height: "auto"
     }
     
-    const iconSvg = type === "signUp" ? signUpIcon : signInIcon;
+    const iconSvg = type === "signOut" ? exitIcon : signInIcon;
     
   return <>
-  <button style={buttonStyle}>
+  <button style={buttonStyle} onClick={(e)=>{console.log(`Я ${type}`)}}>
     <img style={imgStyle} src={iconSvg} alt="" />
   </button>
   </>;
