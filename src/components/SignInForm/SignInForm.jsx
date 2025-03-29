@@ -26,7 +26,7 @@ export const SignInForm = (props) => {
             setTimeout(()=>navigate('/'), 1000)
             if(wrongPass) setWrongPass(false)
             
-        }else{
+        }else {
             setWrongPass(true)
         }
     }
@@ -37,7 +37,7 @@ export const SignInForm = (props) => {
         let inputErrorStyle = 'input-error'
         setTimeout(()=>{
             setWrongPass(false)
-        }, 1000)
+        }, 3000)
         return inputErrorStyle
     }
 
@@ -47,7 +47,7 @@ export const SignInForm = (props) => {
                     <p>
                         Вход в учетную запись
                     </p>
-                    <span className={!wrongPass?'none':'wrongPass'}>Вы ввели неправильный пароль</span>
+                    <span className={!wrongPass?'none':'wrongPass'}>Вы ввели неправильный пароль или логин</span>
                     
                     <div className={`inputs ${wrongPass&&removeRedFunc()}`}>
                         <input type="text" placeholder="Введите e-mail" {...register('email')}/> 

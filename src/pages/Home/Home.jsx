@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from 'react'
+import React, { useCallback, useContext, useEffect, useRef, useState } from 'react'
 import { LogStateContext } from '../../Providers/LogState'
 import axios from 'axios'
 import Card from '../../components/Card/Card'
@@ -9,6 +9,21 @@ const Home = () => {
     const [loading, setLoading] = useState(false)
     const [hasMore, setHasMore] = useState(true)
     const observer = useRef()
+    const debouncerTimer = useRef()
+
+    const debouncer = (func, delay) =>{
+        return(...args)=>{
+            clearTimeout(debouncerTimer.current)
+            debouncerTimer.current =  setTimeout(()=>{
+                func(...args)
+            }, delay)
+        }
+        
+    }
+
+    const debounsedSetPage = useCallback(debouncer((newPage)=>{
+        setPage(newPage)
+    }, 300),[])
     
     
     const fetchData = async (page) =>{
@@ -23,7 +38,7 @@ const Home = () => {
                     setHasMore(response.data.results.length>0)
                 })
             
-            
+                console.log(data)
             
         }catch(error){
             console.log(error);
@@ -44,9 +59,7 @@ const Home = () => {
 
             observer.current = new IntersectionObserver((entries)=>{
                 if(entries[0].isIntersecting && hasMore){
-                    setPage((prevPage)=>{
-                        return prevPage +1
-                    })
+                    debounsedSetPage(page+1)
                 }
             })
 
@@ -56,7 +69,7 @@ const Home = () => {
 
         
     const user = JSON.parse(localStorage.getItem('user'))
-    const {isAuth, login, logout} = useContext(LogStateContext)
+    const {isAuth} = useContext(LogStateContext)
     let headerPhrase = null
     if (!isAuth){
         headerPhrase = <h1>Наша коллекция книг очень большая. Присоединяйся к нам!</h1>
