@@ -1,6 +1,7 @@
 .container_suggestion{
     position: absolute;
     /* display: none; */
+    background-color: white;
     
 }
 .suggestion{

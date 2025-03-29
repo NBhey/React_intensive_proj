@@ -6,6 +6,7 @@ function Suggestion({ suggestions }) {
       <div className="wrapper">
         <ul className="suggestion">
           {suggestions.map((item) => (
+            
             <li key={item.id} className="suggestion_item">
               <p>{item.title}</p>
               <p>{item.authors[0].name}</p>
