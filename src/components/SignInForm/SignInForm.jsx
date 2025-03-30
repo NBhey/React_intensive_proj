@@ -42,7 +42,7 @@ export const SignInForm = (props) => {
     }
 
     return(
-            <div className ={'wrapper'}>
+            <div className ='wrapper-form'>
                 <form onSubmit = {handleSubmit(authFunc)}>
                     <p>
                         Вход в учетную запись

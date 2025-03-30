@@ -35,11 +35,8 @@ const Cards = () => {
 
   const bookRef = useCallback(
     (element) => {
-      console.log(element);
       if (loading) return;
-      console.log(observerRef, "||", observerRef.current);
       if (observerRef.current) observerRef.current.disconnect();
-
       observerRef.current = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting && hasMore) {
           setPage((prevPage) => prevPage + 1);
