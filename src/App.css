@@ -1,8 +1,17 @@
-.container{
-  margin: 0;
-  padding: 20h 15vw;
+.App {
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  
 }
 
-.red{
-  color: red;
+.wrapper{
+  width: 900px;
+  margin: 0 auto;
 }
+
+ul{
+  list-style-type: none;
+}
+

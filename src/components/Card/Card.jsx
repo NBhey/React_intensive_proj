@@ -1,22 +1,12 @@
-import React from 'react'
-import './Card.css'
+import "./Card.css"
 
-const Card = props => {
-  return (
-    <li ref={props.scrollRefferal} className='card'>
-        <div onClick={props.favoritsFunc} className='favorits'>
-
-        </div>
-        <h3 className='book--name'>
-            {props.bookName}
-        </h3>
-        <p>
-            {props.bookAuthor}
-        </p>
-    </li>
-  )
-}
-
-
-
+const Card = ({card}) => {
+    return (
+      <li ref={props.scrollRefferal}>
+        <h3>{card.title}</h3>
+        <h4>{card.authors[0]?.name || 'Anonymous'}</h4>
+      </li>
+    );
+  };
+    
 export default Card

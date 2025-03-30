@@ -1,0 +1,52 @@
+ul{
+    padding: 0;
+}
+.book {
+  width: 100%;
+  aspect-ratio: 2 / 1.2;
+  box-sizing: border-box;
+  background-color: #846545;
+  display: flex;
+  border-radius: 20px;
+  box-shadow: inset -31px 0 4px 0 rgba(0, 0, 0, 0.25), inset 31px 0 4px 0 rgba(0, 0, 0, 0.25);
+  justify-content: space-between;
+  color: white;
+}
+.leftPage{
+    box-sizing: border-box;
+    width: 43%;
+    padding: 2% 9%;
+    padding-right: 0;
+}
+.leftPage h2{
+    margin: 10%;
+}
+.containerParameters{
+    display: flex;
+    height: 100%;
+}
+.parameters{
+    height: 40%;
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+    justify-content: space-between;
+}
+.parameters.of{
+    text-align: center;
+    
+}
+.rootOfBook{
+    border: solid 2px #392B1D;
+    box-shadow: 10px 0 15px 0 black,
+    -10px 0 15px 0 black ;
+}
+.rightPage{
+    width: 43%;
+    box-sizing: border-box;
+    padding: 2% 8%;
+    padding-left: 0;
+}
+.rightPage p{
+    text-align: start;
+}

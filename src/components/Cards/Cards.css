@@ -1,0 +1,16 @@
+.Cards {
+    
+    background-color: #F8F4E7;
+   
+
+  }
+
+  .Cards-wrapper{
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 45px;
+    padding: 40px;
+    list-style: none;
+    margin: 0 auto;
+  }

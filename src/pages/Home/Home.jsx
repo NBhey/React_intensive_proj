@@ -2,6 +2,7 @@ import React, { useCallback, useContext, useEffect, useRef, useState } from 'rea
 import { LogStateContext } from '../../Providers/LogState'
 import axios from 'axios'
 import Card from '../../components/Card/Card'
+import Cards from '../../components/Cards/Cards'
 
 const Home = () => {
     const [data, setData] = useState([])
@@ -26,46 +27,46 @@ const Home = () => {
     }, 300),[])
     
     
-    const fetchData = async (page) =>{
-        setLoading(true)
-        try{
-            axios.get(`https://gutendex.com/books/?page=${page}`)
-                .then((response)=>{
-                    setData((prevData)=>
-                        [...prevData, ...response.data.results]
-                    )
+//     const fetchData = async (page) =>{
+//         setLoading(true)
+//         try{
+//             axios.get(`https://gutendex.com/books/?page=${page}`)
+//                 .then((response)=>{
+//                     setData((prevData)=>
+//                         [...prevData, ...response.data.results]
+//                     )
                     
-                    setHasMore(response.data.results.length>0)
-                })
+//                     setHasMore(response.data.results.length>0)
+//                 })
             
-                console.log(data)
+//                 console.log(data)
             
-        }catch(error){
-            console.log(error);
+//         }catch(error){
+//             console.log(error);
             
-        }finally{
-            setLoading(false)
-        }
+//         }finally{
+//             setLoading(false)
+//         }
         
-   } 
-        useEffect(()=>{
-            fetchData(page)
-        }, [page])
+//    } 
+        // useEffect(()=>{
+        //     fetchData(page)
+        // }, [page])
 
-        const lastItemRef = (node) =>{
-            if(loading) return;
+        // const lastItemRef = (node) =>{
+        //     if(loading) return;
 
-            if(observer.current) observer.current.disconnect();
+        //     if(observer.current) observer.current.disconnect();
 
-            observer.current = new IntersectionObserver((entries)=>{
-                if(entries[0].isIntersecting && hasMore){
-                    debounsedSetPage(page+1)
-                }
-            })
+        //     observer.current = new IntersectionObserver((entries)=>{
+        //         if(entries[0].isIntersecting && hasMore){
+        //             debounsedSetPage(page+1)
+        //         }
+        //     })
 
-            if(node) observer.current.observe(node)
+        //     if(node) observer.current.observe(node)
 
-        }
+        // }
 
         
     const user = JSON.parse(localStorage.getItem('user'))
@@ -77,23 +78,25 @@ const Home = () => {
         headerPhrase = (user && isAuth)&& <h1>{user.name}, Привет!</h1>
     }
 
-    const booksArr = data && data.map((item, index)=>{
+    // const booksArr = data && data.map((item, index)=>{
             
-        return (
-            <Card 
-                scrollRefferal = {index === data.length - 1 ? lastItemRef : null}
-                bookName = {item.title}
-                bookAuthor = {item.authors[0]?.name? item.authors[0].name:item.authors[0]='unknown author'}
-                />
-        )
-    })
+    //     return (
+    //         // <Card 
+    //         //     scrollRefferal = {index === data.length - 1 ? lastItemRef : null}
+    //         //     bookName = {item.title}
+    //         //     bookAuthor = {item.authors[0]?.name? item.authors[0].name:item.authors[0]='unknown author'}
+    //         //     />
+    //         <Cards/>
+    //     )
+    // })
 
 
   return (
-    <div>
-        {headerPhrase}
-        {booksArr}
-    </div>
+    <Cards/> 
+    // <div>
+    //     {/* {headerPhrase}
+    //     {booksArr} */}
+    // </div>
   )
 }
 

@@ -1,19 +1,44 @@
-.card{
-    border: 1px solid black;
-    width: fit-content;
-    height: auto;
-    background-color: chocolate;
-    padding: 5px;
-    margin-bottom: 10px;
-}
+li {
+    background: #846545;
+    height: 284px;
+    max-width: 214px;
+    color: white;
+    padding: 15px;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius:12px ;
+    box-shadow: 12px 15px 4px 0 #392B1D,
+    inset 27px 4px 4px 0 #392B1D;
+    transition: transform 0.2s;
 
-.book--name{
-    color: aqua;
-    font-size: 2em;
-    text-shadow: 1px 1px 5px red,
-                 0 0 2em blue,
-                 0 0 0.2em blue;
-}
-.card > p {
-    color: red;
-}
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 20px;
+
+  }
+  
+  li:hover {
+    transform: translateY(-5px);
+    cursor: url('./assets/pointer.png') 0 0,pointer;
+  }
+  
+  h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: normal;
+    text-align: center;
+
+    max-width: 160px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  h4 {
+    text-align: center;
+    font-size: 14px;
+  }
+
