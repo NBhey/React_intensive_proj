@@ -1,5 +1,6 @@
 import axios from "axios";
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useState, useEffect, useRef, useCallback, useContext } from "react";
+import { LogStateContext } from '../../Providers/LogState'
 
 import Card from "../Card/Card";
 import "./Cards.css";
@@ -47,10 +48,21 @@ const Cards = () => {
     [loading, hasMore]
   );
 
+    const user = JSON.parse(localStorage.getItem('user'))
+    const {isAuth} = useContext(LogStateContext)
+    let headerPhrase = null
+    if (!isAuth){
+        headerPhrase = <h1>Наша коллекция книг очень большая. Присоединяйся к нам!</h1>
+    }else{
+        headerPhrase = (user && isAuth)&& <h1>{user.name}, Привет!</h1>
+    }
+
 
   return (
     <section className="Cards">
+      {headerPhrase}
       <ul className="Cards-wrapper">
+        
         {books?.map((el, index) => {
           if (books.length === index + 1) {
             

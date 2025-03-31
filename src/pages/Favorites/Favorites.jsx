@@ -9,13 +9,19 @@ const Favorites = () => {
     
     
   return (
-   <ul>
-       {favorites.length > 0 ? favorites.map((element, index)=>{
-            return( <li onClick={(e)=>{
-                dispatch(removeFavoritesAction(element.id))
-            }}>{element.title}</li>)
-        }):'У вас ничего не добавлено'}    
-   </ul> 
+    <section className='Cards Favorites'>
+        <ul className='Cards-wrapper'>
+            {favorites.length > 0 ? favorites.map((element, index)=>{
+                    return( <li onClick={(e)=>{
+                        dispatch(removeFavoritesAction(element.id))
+                    }}>
+                        <h3>{element.title}</h3>
+                        <h4>{element.author}</h4>
+                    </li>)
+                }):'У вас ничего не добавлено'}    
+        </ul> 
+
+    </section>
   )
 }
 

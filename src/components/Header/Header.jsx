@@ -14,12 +14,12 @@ function Header() {
       <header className="header">
         <div className="header-wrapper">
           <div className="header__logo">
-            <a href="/#">BookHome</a>
+            <NavLink to='/'>BookHome</NavLink>
           </div>
 
           <nav className="header__navigation">
-            <a href="#/"> История </a>
-            <a href="#/"> Избранное </a>
+            <NavLink to='/History'>История</NavLink>
+            <NavLink to={!isAuth?'/SignInPage':'/Favorites'}>Избранное</NavLink> 
             <div className="header__button">
               {!isAuth? <Button type="signIn"/>:<Button type="signOut" />}
              
