@@ -45,7 +45,7 @@ const SignUpForm = props => {
         btnSignIn = <button type="button" onClick={navToSignInPage}>Войти в Аккаунт</button>
     }
     return(
-        <div className="wrapper">
+        <div className="wrapper-form">
             <form onSubmit = {handleSubmit(registerFunc)}>
                 <p>
                 {!isRegistred?"Создайте аккаунт и читайте с нами!":"Похоже, такая почта уже используется другим аккаунтом"}

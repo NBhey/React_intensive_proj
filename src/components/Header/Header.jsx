@@ -1,7 +1,14 @@
+import React, { useContext } from "react";
 import Button from "../Button/Button";
 import "./Header.css";
+import { LogStateContext } from "../../Providers/LogState";
+import { NavLink, useNavigate } from "react-router-dom";
+
+
+ 
 
 function Header() {
+  const {isAuth} = useContext(LogStateContext)
   return (
     <>
       <header className="header">
@@ -9,15 +16,16 @@ function Header() {
 
         <div className="header-wrapper">
           <div className="header__logo">
-            <a href="/#">BookHome</a>
+            <NavLink to='/'>BookHome</NavLink>
           </div>
 
           <nav className="header__navigation">
-            <a href="#/"> История </a>
-            <a href="#/"> Избранное </a>
+            <NavLink to='/History'>История</NavLink>
+            <NavLink to={!isAuth?'/SignInPage':'/Favorites'}>Избранное</NavLink> 
             <div className="header__button">
-              <Button type="signIn" />
-              <Button type="signOut" />
+              {!isAuth? <Button type="signIn"/>:<Button type="signOut" />}
+             
+              
             </div>
           </nav>
         </div>

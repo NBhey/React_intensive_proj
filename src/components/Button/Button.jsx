@@ -1,3 +1,10 @@
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { LogStateContext } from "../../Providers/LogState";
+
+
+
+
 const signInIcon = (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -71,11 +78,14 @@ function Button({ type }) {
 
   const iconSvg = type === "signOut" ? exitIcon : signInIcon;
 
+  const {isAuth, logout} = useContext(LogStateContext)
+  const navigate = useNavigate()  
+
   return (
     <button
       style={buttonStyle}
       onClick={(e) => {
-        console.log(`Я ${type}`);
+       !isAuth?navigate('SignInPage'): logout()
       }}
     >
       {iconSvg}

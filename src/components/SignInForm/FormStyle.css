@@ -1,6 +1,7 @@
-.wrapper{
-    /* background-color: #F8F4E7; */
-    /* height: 94vh; */
+
+.wrapper-form {
+    background-color: #F8F4E7;
+    height: 94vh;
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -8,7 +9,7 @@
     align-items: center;
     
 }
-.wrapper > form{
+.wrapper-form > form{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
