@@ -7,7 +7,6 @@ import "./Cards.css";
 const Cards = ({ books, loading }) => {
   return (
     <section className="Cards">
-      {headerPhrase}
       <ul className="Cards-wrapper">
 
         {books?.map((el) => (
