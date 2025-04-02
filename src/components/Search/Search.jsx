@@ -9,27 +9,45 @@ import filterImg from '../../assets/images/filter.svg';
 
 import { debounce } from '../../utils/debounce';
 
+import {useDispatch, useSelector} from 'react-redux';
+import { setSearchObject, clearSearchObject } from '../../store/actions/actionsSearch';
 import './search.css';
+import { useNavigate } from 'react-router-dom';
 
 
 function Search(props) {
+  const dispatch = useDispatch();
+  const searchObject = useSelector((state) => state.search.searchObject);
   const [params, setParam] = useState({ search: '', lang: '', sort: '' }); //нужен редакс
   const [isOpenFilter, setIsOpenFilter] = useState(false);
   const [inputValue, setInputValue] = useState(''); //мб реф использовать?
   const [suggestion, setSuggestion] = useState([]);
   const [OpenSuggestion, setOpenSuggestion] = useState(false);
+  const navigate=useNavigate();
+  const onClickSearch=()=>{
+    navigate('/search');
+    setOpenSuggestion(false)
+    dispatch(setSearchObject(params));
+  }
 
   const onChangeInput = (e) => {
     setInputValue(e.target.value);
     setParam({ ...params, search: e.target.value });
   };
 
+  const onSearchKeyDown=(e)=>{
+    if(e.key==='Enter'){
+      e.preventDefault();
+      onClickSearch();
+    }
+  }
+
   const onSelectLanguage = (lang) => {
     setParam({ ...params, lang: lang });
   };
   const onSelectSort = (sort) => {
     setParam({ ...params, lang: sort });
-  };
+  };//ее можно убрать
   const onOpenFilter = () => {
     setIsOpenFilter(!isOpenFilter);
   };
@@ -52,40 +70,26 @@ function Search(props) {
    if(inputValue.length>2){
     fetchSugDebounce(params);
    }
-    // const fetchSug = async () => {
-    //   if (inputValue.length > 2) {
-    //     try {
-    //       const res = await axios.get(
-    //         `https://gutendex.com/books?search=${inputValue.replace(/\s/g, '%20')}`,
-    //       );
-    //       const newRes = res.data.results.slice(0, 5);
-    //       setSuggestion(newRes);
-    //       setOpenSuggestion(true);
-    //     } catch (error) {
-    //       console.log(error);
-    //       setSuggestion([]);
-    //       setOpenSuggestion(false);
-    //     }
-    //   }
-    // };
-    // fetchSug();
+   
   }, [inputValue]);
 
   return (
+    <>
     <div className="wrapper">
       <div className="block_search">
-        <div className="container-search">
+        <div className={OpenSuggestion ? "container-search withSug": "container-search" }>
           <input
             className="search"
             value={inputValue}
             onChange={(e) => onChangeInput(e)}
+            onKeyDown={onSearchKeyDown}
             type="text"
             placeholder="Введите текст для поиска"
           />
           <span className="search_btn" onClick={onOpenFilter}>
             <img src={filterImg} alt="filter" width="45px" />
           </span>
-          <span className="search_btn">
+          <span className="search_btn" onClick={onClickSearch}>
             <img src={searchImg} alt="search" width="25px" />
           </span>
         </div>
@@ -97,8 +101,9 @@ function Search(props) {
           />
         )}
       </div>
-      {OpenSuggestion && <Suggestion suggestions={suggestion} />}
+    {OpenSuggestion && <Suggestion suggestions={suggestion} />}
     </div>
+    </>
   );
 }
 

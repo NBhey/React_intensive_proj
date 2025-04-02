@@ -1,4 +1,4 @@
-li {
+.card_item {
     background: #846545;
     height: 284px;
     max-width: 214px;
@@ -19,12 +19,12 @@ li {
 
   }
   
-  li:hover {
+  .card_item:hover {
     transform: translateY(-5px);
     cursor: url('./assets/pointer.png') 0 0,pointer;
   }
   
-  h3 {
+  .card_title {
     margin: 0;
     font-size: 20px;
     font-weight: normal;

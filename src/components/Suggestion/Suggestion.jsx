@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './suggestion.css';
 function Suggestion({ suggestions }) {
   return (
@@ -6,11 +7,12 @@ function Suggestion({ suggestions }) {
       <div className="wrapper">
         <ul className="suggestion">
           {suggestions.map((item) => (
-            
+            <Link to={`/book/${item.id}`}>
             <li key={item.id} className="suggestion_item">
               <p>{item.title}</p>
               <p>{item.authors[0].name}</p>
             </li>
+            </Link>
           ))}
         </ul>
       </div>

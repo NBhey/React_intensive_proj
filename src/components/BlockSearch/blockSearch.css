@@ -1,7 +1,7 @@
 .blockSearch{
-    width: 100%;
+    width: 100vw;
     background-image: url('../../assets/images/backgroundSearch.jpg') ;
-    height: 20%;
+    height: 160px;
     background-size: cover;
     background-position: center;
     display: flex;

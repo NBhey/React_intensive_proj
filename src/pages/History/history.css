@@ -1,0 +1,14 @@
+.history{
+    width: 100%;
+    background-color: #78a678;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.history li{
+    padding: 10px 26px;
+}
+.history li:hover{
+    background-color: #9baa9b;
+    cursor: pointer;
+}

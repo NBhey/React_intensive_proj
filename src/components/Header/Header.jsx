@@ -5,6 +5,8 @@ function Header() {
   return (
     <>
       <header className="header">
+        <div className="wrapper">
+
         <div className="header-wrapper">
           <div className="header__logo">
             <a href="/#">BookHome</a>
@@ -18,6 +20,7 @@ function Header() {
               <Button type="signOut" />
             </div>
           </nav>
+        </div>
         </div>
       </header>
     </>
