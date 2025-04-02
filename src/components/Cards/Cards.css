@@ -1,8 +1,11 @@
 .Cards {
     
     background-color: #F8F4E7;
-   
+    text-align: center;
+  }
 
+  .Favorites{
+    min-height: 94vh;
   }
 
   .Cards-wrapper{

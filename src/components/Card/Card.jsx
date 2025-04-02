@@ -1,11 +1,29 @@
-import "./Card.css";
-import { useState } from "react";
-const Card = ({ card }) => {
-  const [isLiked, setIsLiked] = useState(false);
+import "./Card.css"
+import {useDispatch, useSelector} from 'react-redux'
+import { addFavoritesAction, removeFavoritesAction } from '../../store/Reducers/favoritesReducer'
+import React, { useState } from "react";
 
-  return (
-    <li>
-      <span onClick={() => setIsLiked(!isLiked)}>
+const Card = ({card}) => {
+  const [fav,setFav] = useState(false)
+  const dispatch = useDispatch()
+  const favorites = useSelector(state=>state.favorites.userFavorites)
+  const displayAuthor = card.authors[0]?.name || 'Anonymous'
+  const [isLiked, setIsLiked] = useState(false);
+  const addToFavFunc = () =>{
+    dispatch(addFavoritesAction({id: card.id, title: card.title, author: displayAuthor}))
+    setFav(true)
+    
+  }
+
+  // const removeFromFavFunc= () =>{
+  //   dispatch(removeFavoritesAction(card.id))
+  //   setFav(false)
+  // }
+
+  
+    return (
+      <li onClick={addToFavFunc}>
+       <span onClick={() => setIsLiked(!isLiked)}>
         <svg
           width="42"
           height="37"
@@ -22,10 +40,11 @@ const Card = ({ card }) => {
           />
         </svg>
       </span>
-      <h3>{card.title}</h3>
-      <h4>{card.authors[0]?.name || "Anonymous"}</h4>
-    </li>
-  );
-};
+        <h3>{card.title}</h3>
+        <h4>{displayAuthor}</h4>
+      </li>
+    );
+  };
+    
+export default Card
 
-export default Card;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { getBooks } from '../../servises/api/getBooks';
 
-import Filter from '../Filter/Filter';
+import Filter from '../filter/Filter'
 import Suggestion from '../Suggestion/Suggestion';
 
 import searchImg from '../../assets/images/search.svg';
