@@ -1,60 +1,43 @@
-li {
-  background: #846545; /* Коричневый цвет (как на скриншоте) */
-  height: 284px;
-  max-width: 214px;
-  color: white;
-  padding: 15px;
-  border-top-left-radius: 12px;
-  border-bottom-left-radius: 12px;
-  box-shadow: 12px 15px 4px 0 #392b1d, inset 27px 4px 4px 0 #392b1d;
-  transition: transform 0.2s;
+.card_item {
+    background: #846545;
+    height: 284px;
+    max-width: 214px;
+    color: white;
+    padding: 15px;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius:12px ;
+    box-shadow: 12px 15px 4px 0 #392B1D,
+    inset 27px 4px 4px 0 #392B1D;
+    transition: transform 0.2s;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-  gap: 20px;
+    gap: 20px;
 
-  position: relative;
-}
+  }
+  
+  .card_item:hover {
+    transform: translateY(-5px);
+    cursor: url('./assets/pointer.png') 0 0,pointer;
+  }
+  
+  .card_title {
+    margin: 0;
+    font-size: 20px;
+    font-weight: normal;
+    text-align: center;
 
-li:hover {
-  transform: translateY(-5px);
-  cursor: url("./assets/pointer.png") 0 0, pointer;
-}
+    max-width: 160px;
 
-li > span:hover svg path {
-  fill: red;
-  transition: fill 0.2s ease;
-}
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
-li > span {
-  position: absolute;
-  right: 5px;
-  top: 5px;
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-
-li > span:hover {
-  transform: scale(1.1);
-}
-
-h3 {
-  margin: 0;
-  font-size: 20px;
-  font-weight: normal;
-  text-align: center;
-
-  max-width: 160px;
-
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-h4 {
-  text-align: center;
-  font-size: 14px;
-}
+  h4 {
+    text-align: center;
+    font-size: 14px;
+  }

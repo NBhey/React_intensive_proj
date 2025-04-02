@@ -12,6 +12,8 @@ function Header() {
   return (
     <>
       <header className="header">
+        <div className="wrapper">
+
         <div className="header-wrapper">
           <div className="header__logo">
             <NavLink to='/'>BookHome</NavLink>
@@ -26,6 +28,7 @@ function Header() {
               
             </div>
           </nav>
+        </div>
         </div>
       </header>
     </>
