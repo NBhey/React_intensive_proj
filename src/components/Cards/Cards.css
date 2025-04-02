@@ -1,5 +1,5 @@
 .Cards {
-    
+    width: 100%;
     background-color: #F8F4E7;
     text-align: center;
   }
@@ -9,11 +9,11 @@
   }
 
   .Cards-wrapper{
-    max-width: 1200px;
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 45px;
-    padding: 40px;
+    gap: 40px 12%;
+    padding: 40px 0;
     list-style: none;
     margin: 0 auto;
   }

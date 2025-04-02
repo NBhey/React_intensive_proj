@@ -4,11 +4,8 @@ import BlockSearch from '../../components/BlockSearch/BlockSearch'
 import InfiniteScrollBooks from "../../components/InfiniteScrollBooks/InfiniteScrollBooks";
 
 const Home = () => {    
-    
-
   return (
     <>  
-       
         <BlockSearch/>        
         <InfiniteScrollBooks />
     </>

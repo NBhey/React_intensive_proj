@@ -1,36 +1,50 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { useParams } from 'react-router-dom';
 import './book.css';
 
-function Book(props) {
-    return (
-        <div className='wrapper'>
-            <div className='book'>
-                <div className='leftPage'>
-                    <h2>Simple Sabotage Field Manual</h2>
-                    <div className='containerParameters'>
-
-                    <ul className='parameters'>
-                        <li>Автор(ы): </li>
-                        <li>Язык: </li>
-                        <li>Количество скачиваний: </li>
-                    </ul>
-                    <ul className='parameters of'>
-                        <li>United States. Office of Strategic Services</li>
-                        <li>Английскй</li>
-                        <li>134578</li>
-                    </ul>
-                    </div>
-                </div>
-                <div className='rootOfBook'>
-
-                </div>
-                <div className='rightPage'>
-                    <h3>Краткое содержание</h3>
-                    <p>Simple Sabotage Field Manual\" by United States. Office of Strategic Services is a historical publication written during the early 1940s, amid World War II. This manual acts as a guide for ordinary civilians to conduct simple acts of sabotage against enemy operations without the need for specialized training or equipment. Its main topic revolves around promoting small, accessible forms of resistance that could collectively disrupt the enemy's war effort.  The manual outlines various strategies and techniques for citizens to engage in sabotage that could be executed discreetly and with minimal risk. It provides specific suggestions for targeting transportation, communication, and industrial </p>
-                </div>
-            </div>
+function Book() {
+  const { id } = useParams();
+  const [book, setBook] = useState({});
+  useEffect(() => {
+    const fetchSug = async (args) => {
+      try {
+        const res = await axios.get(`https://gutendex.com/books?ids=${id}`);
+        const newRes = res.data.results[0];
+        console.log(newRes);
+        setBook(newRes);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchSug();
+  }, [id]);
+  return (
+    <div className="wrapper">
+      <div className="book">
+        <div className="leftPage">
+          <h2>Simple Sabotage Field Manual</h2>
+          <div className="containerParameters">
+            <ul className="parameters">
+              <li>Автор(ы): </li>
+              <li>Язык: </li>
+              <li>Количество скачиваний: </li>
+            </ul>
+            <ul className="parameters of">
+              <li>{book.authors?.[0]?.name || 'Неизвестно'}</li>
+              <li>{book.languages?.[0] || 'Неизвестно'}</li>
+              <li>{book.download_count || 'Неизвестно'}</li>
+            </ul>
+          </div>
         </div>
-    );
+        <div className="rootOfBook"></div>
+        <div className="rightPage">
+          <h3>Краткое содержание</h3>
+          <p>{book.summaries?.[0] || 'Краткое содержание отсутствует'}</p>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default Book;

@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux'
 import { addFavoritesAction, removeFavoritesAction } from '../../store/Reducers/favoritesReducer'
 import React, { useState } from "react";
 
+
 const Card = ({card}) => {
   const [fav,setFav] = useState(false)
   const dispatch = useDispatch()
@@ -22,7 +23,7 @@ const Card = ({card}) => {
 
   
     return (
-      <li onClick={addToFavFunc}>
+      <li className="card_item" onClick={addToFavFunc}>
        <span onClick={() => setIsLiked(!isLiked)}>
         <svg
           width="42"
@@ -40,7 +41,7 @@ const Card = ({card}) => {
           />
         </svg>
       </span>
-        <h3>{card.title}</h3>
+        <h3 className="card_title">{card.title}</h3>
         <h4>{displayAuthor}</h4>
       </li>
     );

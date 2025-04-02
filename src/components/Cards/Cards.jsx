@@ -1,6 +1,4 @@
-// import axios from "axios";
 import React from "react";
-
 import Card from "../Card/Card";
 import "./Cards.css";
 
@@ -17,7 +15,7 @@ const Cards = ({ books, loading }) => {
       {loading && <div className="loading">Загрузка...</div>}
     </section>
   );
-};
+});
 
 
 export default Cards;
