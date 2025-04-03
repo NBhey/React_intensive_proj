@@ -3,7 +3,6 @@ import Card from '../Card/Card';
 import './Cards.css';
 
 const Cards = ({ books, loading }) => {
-  
   return (
     <section className="Cards">
       <ul className="Cards-wrapper">

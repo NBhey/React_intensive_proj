@@ -1,35 +1,39 @@
 import "./Card.css"
 import {useDispatch, useSelector} from 'react-redux'
 import { addFavoritesAction, removeFavoritesAction } from '../../store/Reducers/favoritesReducer'
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 
 const Card = ({card}) => {
-  const [fav, setFav] = useState(false)
+
   const dispatch = useDispatch()
   const favorites = useSelector(state=>state.favorites.userFavorites)
   const displayAuthor = card.authors?.[0]?.name || 'Anonymous'
-  const [isLiked, setIsLiked] = useState(false);
+  const [isLiked, setIsLiked] = useState();
+  
   const addToFavFunc = () =>{
-    dispatch(addFavoritesAction({id: card.id, title: card.title, author: displayAuthor}))
-    setFav(true)
-    
+    dispatch(addFavoritesAction({id: card.id, title: card.title, authors: [{name:displayAuthor}]}))
+    setIsLiked(!isLiked)
   }
 
-  // const removeFromFavFunc= () =>{
-  //   dispatch(removeFavoritesAction(card.id))
-  //   setFav(false)
-  // }
+  const removeFromFavFunc= () =>{
+    dispatch(removeFavoritesAction(card.id))
+    setIsLiked(!isLiked)
+  }
 
-  
+  let res = favorites.find((element)=>
+    element.id === card.id
+  )
+
+  console.log(favorites)
     return (
-      <li className="card_item" onClick={addToFavFunc}>
-       <span onClick={() => setIsLiked(!isLiked)}>
+      <li className="card_item" >
+       <span className="favSpan" onClick={!res?addToFavFunc:removeFromFavFunc}>
         <svg
           width="42"
           height="37"
           viewBox="0 0 42 37"
-          fill={isLiked ? "#F8F4E7" : "none"}
+          fill={ res? "#F8F4E7" : "none"}
           xmlns="http://www.w3.org/2000/svg"
         >
           <path

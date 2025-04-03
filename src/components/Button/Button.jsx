@@ -8,8 +8,8 @@ import { LogStateContext } from "../../Providers/LogState";
 const signInIcon = (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="57"
-    height="55"
+    width="50"
+    height="45"
     viewBox="0 0 57 55"
     fill="none"
   >
@@ -39,8 +39,8 @@ const signInIcon = (
 const exitIcon = (
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    width="54"
-    height="54"
+    width="50"
+    height="45"
     viewBox="0 0 54 54"
     fill="none"
   >
