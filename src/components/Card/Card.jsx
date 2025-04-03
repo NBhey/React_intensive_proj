@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 
 
 const Card = ({card}) => {
+
   const dispatch = useDispatch()
   const favorites = useSelector(state=>state.favorites.userFavorites)
   const displayAuthor = card.authors?.[0]?.name || 'Anonymous'

@@ -1,4 +1,10 @@
 export const resources={
+    pages: {
+        search: {tittle: 'Поиск по: '},
+        favorites: {tittle: 'Избранное'},
+        history: {tittle: 'История поиска'},
+        home: {tittle: 'Популярное'},
+    },
     filter: {
         languages: [
             {

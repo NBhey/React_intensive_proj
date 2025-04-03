@@ -6,11 +6,12 @@ import { useSelector } from 'react-redux';
 import Cards from '../../components/Cards/Cards';
 import { getBooks } from '../../servises/api/getBooks';
 import BlockSearch from '../../components/BlockSearch/BlockSearch';
+import TittlePages from '../../components/TittlePages/TittlePages';
 
 
 
 
-function SearchPage() {
+function SearchPage({tittle}) {
     const[books, setBooks]=useState([]);
     const searchBook=useSelector((state)=>state.search.searchObject)
     useEffect(()=>{
@@ -36,7 +37,7 @@ function SearchPage() {
         <>
           <BlockSearch/>
           <div className="wrapper">
-
+          <TittlePages tittle={tittle}/>
           <Cards books={books}/>
           </div>
     
