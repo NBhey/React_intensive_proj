@@ -1,14 +1,19 @@
 import React from 'react'
 import {useDispatch, useSelector} from 'react-redux'
-import { removeFavoritesAction } from '../../store/Reducers/favoritesReducer'
+import { removeFavoritesAction } from '../../store/Reducers/favoritesReducer';
+import TittlePages from '../../components/TittlePages/TittlePages'
 
-const Favorites = () => {
+const Favorites = ({tittle}) => {
     const dispatch = useDispatch()
     const favorites = useSelector(state=>state.favorites.userFavorites)
        
     
     
   return (
+    <>
+    <div className="wrapper">
+        <TittlePages tittle={tittle}/>
+    </div>
     <section className='Cards Favorites'>
         <ul className='Cards-wrapper'>
             {favorites.length > 0 ? favorites.map((element, index)=>{
@@ -22,6 +27,7 @@ const Favorites = () => {
         </ul> 
 
     </section>
+    </>
   )
 }
 

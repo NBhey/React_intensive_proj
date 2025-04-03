@@ -1,19 +1,18 @@
-import React, { useEffect } from 'react'
-import Cards from '../../components/Cards/Cards'
-import BlockSearch from '../../components/BlockSearch/BlockSearch'
-import InfiniteScrollBooks from "../../components/InfiniteScrollBooks/InfiniteScrollBooks";
-import { useDispatch } from 'react-redux';
-import { addSearchHistory } from '../../store/actions/actionSearchHistory';
+import React, { useEffect } from 'react';
+import TittlePages from '../../components/TittlePages/TittlePages';
+import BlockSearch from '../../components/BlockSearch/BlockSearch';
+import InfiniteScrollBooks from '../../components/InfiniteScrollBooks/InfiniteScrollBooks';
 
-const Home = () => {    
-
+const Home = ({ tittle }) => {
   return (
-    <>  
-        <BlockSearch/>        
-        <InfiniteScrollBooks />
+    <>
+      <BlockSearch />
+      <div className="wrapper">
+        <TittlePages tittle={tittle} />
+      </div>
+      <InfiniteScrollBooks />
     </>
-  )
-}
+  );
+};
 
-export default Home
-
+export default Home;

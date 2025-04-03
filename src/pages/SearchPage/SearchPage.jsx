@@ -37,7 +37,7 @@ function SearchPage({tittle}) {
         <>
           <BlockSearch/>
           <div className="wrapper">
-          <TittlePages tittle={tittle}/>
+          <TittlePages tittle={tittle} addTittle={searchBook.search}/>
           <Cards books={books}/>
           </div>
     

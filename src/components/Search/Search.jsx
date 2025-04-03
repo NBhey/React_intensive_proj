@@ -17,14 +17,18 @@ import { useNavigate } from 'react-router-dom';
 
 function Search() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const searchHistory=useSelector((state)=>state.searchHistory.searchHistory);
+
   const searchObject = useSelector((state) => state.search.searchObject.search);
+
   const [params, setParam] = useState({ search: '', lang: '', sort: '' }); //нужен редакс
   const [isOpenFilter, setIsOpenFilter] = useState(false);
-  const [inputValue, setInputValue] = useState(searchObject); //мб реф использовать?
-  const [suggestion, setSuggestion] = useState([]);
   const [OpenSuggestion, setOpenSuggestion] = useState(false);
-  const navigate = useNavigate();
+  const [inputValue, setInputValue] = useState(''); //мб реф использовать?
+  const [suggestion, setSuggestion] = useState([]);
+
   const onClickSearch = () => {
     navigate('/search');
     setOpenSuggestion(false);
@@ -32,7 +36,7 @@ function Search() {
     dispatch(addSearchHistory(params));
     
   };
-//searchp: [{}];
+
   const onChangeInput = (e) => {
     setInputValue(e.target.value);
     setParam({ ...params, search: e.target.value });
@@ -49,8 +53,9 @@ function Search() {
     setParam({ ...params, lang: lang });
   };
   const onSelectSort = (sort) => {
-    setParam({ ...params, lang: sort });
+    setParam({ ...params, sort: sort });
   }; //ее можно убрать
+
   const onOpenFilter = () => {
     setIsOpenFilter(!isOpenFilter);
   };
@@ -59,7 +64,8 @@ function Search() {
     try {
       const res = await getBooks(args);
       const newRes = res.data.results.slice(0, 5);
-      if(newRes[0]){
+      if(newRes.length>0){
+        console.log('xnj', newRes.length)
         setSuggestion(newRes);
         setOpenSuggestion(true);
       }
@@ -71,7 +77,9 @@ function Search() {
   };
   
   useEffect(() => {
-    fetchSug(params);
+    if(inputValue.length > 2){
+      fetchSug(params);
+    }
   }, [inputValue]);
 
   return (

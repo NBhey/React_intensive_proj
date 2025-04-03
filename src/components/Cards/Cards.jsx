@@ -1,13 +1,12 @@
-import React from "react";
-import Card from "../Card/Card";
-import "./Cards.css";
+import React from 'react';
+import Card from '../Card/Card';
+import './Cards.css';
 
 const Cards = ({ books, loading }) => {
+  
   return (
     <section className="Cards">
-      
       <ul className="Cards-wrapper">
-
         {books?.map((el) => (
           <Card key={el.id} card={el} />
         ))}
@@ -16,6 +15,5 @@ const Cards = ({ books, loading }) => {
     </section>
   );
 };
-
 
 export default Cards;

@@ -51,4 +51,10 @@ ul{
 }
 .rightPage p{
     text-align: start;
+    height: 89%;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 25;
+    -webkit-box-orient: vertical;
 }
+
