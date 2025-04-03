@@ -1,4 +1,5 @@
 import {ADD_SEARCH_HISTORY, CLEAR_SEARCH_HISTORY} from '../actions/actionSearchHistory';
+
 const initLocal=localStorage.getItem('searchParams')
     ? JSON.parse(localStorage.getItem('searchParams'))
     : [];
