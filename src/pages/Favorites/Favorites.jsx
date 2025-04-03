@@ -1,23 +1,15 @@
 import React from 'react'
 import {useSelector} from 'react-redux'
-import Card from '../../components/Card/Card'
+import Cards from '../../components/Cards/Cards'
 
 
 const Favorites = () => {
     const favorites = useSelector(state=>state.favorites.userFavorites)
-    
-  return (
-    <section className='Cards Favorites'>
-        <div className="wrapper">
-            <ul className='Cards-wrapper'>
-                {favorites.length > 0 ? favorites.map((element)=>{
-                        return( <Card key={element.id} card={element}/> )
-                        
-                    }):'У вас ничего не добавлено'}    
-            </ul> 
-        </div>
 
-    </section>
+  return (
+    (<Cards books = {favorites} loading={false}/>&&favorites.length) || <div className="wrapper">
+        <p>У вас ничего не добавлено</p>
+    </div>
   )
 }
 
