@@ -12,9 +12,9 @@
 ### Выполнение задач: 
 1. Настройка redux: Лобанова Валерия и Бондарев Никита
 2. Создание компонентов: 
- 1. Search, History, Suggest -  Лобанова Валерия 
- 2. Form, Favorites - Бонадерв Никита 
- 3. Cards, Card, Header - Маркарян-Тридрих Оганес
+ - Search, History, Suggest -  Лобанова Валерия 
+ - Form, Favorites - Бонадерв Никита 
+ - Cards, Card, Header - Маркарян-Тридрих Оганес
 
 3. Работа с React Router - Бондарев Никита
 4. Работа c React Hook Form, Yup - Бондарев Никита 
