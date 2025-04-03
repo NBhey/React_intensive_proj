@@ -11,8 +11,6 @@ import Header from './components/Header/Header';
 import Book from './components/Book/Book.jsx';
 import History from './pages/History/History.jsx';
 import SearchPage from './pages/SearchPage/SearchPage.jsx';
-import { Provider } from 'react-redux';
-import { store } from './store/store';
 import Favorites from './pages/Favorites/Favorites';
 
 

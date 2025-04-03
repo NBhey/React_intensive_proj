@@ -47,7 +47,7 @@ const InfiniteScrollBooks = () => {
   );
 
   return (
-    <div>
+    <div className="wrapper">
       <Cards books={books} loading={loading} />
       <div ref={lastBookRef} style={{ height: "20px" }} />
     </div>
