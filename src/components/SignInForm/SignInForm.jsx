@@ -14,7 +14,7 @@ export const SignInForm = (props) => {
         mode: 'onChange'
     })
     const {login} = useContext(LogStateContext)
-    const [wrongPass, setWrongPass] = useState(false)
+    const [wrongPass, setWrongPass] = useState(null)
     const navigate = useNavigate()
    
     

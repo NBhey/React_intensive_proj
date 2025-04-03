@@ -5,7 +5,6 @@ import "./Cards.css";
 const Cards = ({ books, loading }) => {
   return (
     <section className="Cards">
-      
       <ul className="Cards-wrapper">
 
         {books?.map((el) => (
@@ -16,6 +15,7 @@ const Cards = ({ books, loading }) => {
     </section>
   );
 };
+
 
 
 export default Cards;

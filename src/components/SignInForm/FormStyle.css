@@ -1,7 +1,7 @@
 
 .wrapper-form {
     background-color: #F8F4E7;
-    height: calc(100vh-58px);
+    height: calc(100vh - 58px);
     overflow: hidden;
     display: flex;
     flex-direction: column;
