@@ -5,10 +5,10 @@ import React, { useState } from "react";
 
 
 const Card = ({card}) => {
-  const [fav,setFav] = useState(false)
+  const [fav, setFav] = useState(false)
   const dispatch = useDispatch()
   const favorites = useSelector(state=>state.favorites.userFavorites)
-  const displayAuthor = card.authors[0]?.name || 'Anonymous'
+  const displayAuthor = card.authors?.[0]?.name || 'Anonymous'
   const [isLiked, setIsLiked] = useState(false);
   const addToFavFunc = () =>{
     dispatch(addFavoritesAction({id: card.id, title: card.title, author: displayAuthor}))

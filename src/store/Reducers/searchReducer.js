@@ -1,6 +1,8 @@
 import { SET_SEARCH_OBJECT, CLEAR_SEARCH_OBJECT } from "../actions/actionsSearch";
 
-const initialSearch={};
+const initialSearch={
+  searchObject: {search:''} 
+};
 
 export const searchReducer=(state=initialSearch, action)=>{
     switch (action.type) {
