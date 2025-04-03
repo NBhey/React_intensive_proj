@@ -16,7 +16,8 @@ const Cards = ({ books, loading }) => {
       </div>
     </section>
   );
-}
+};
+
 
 
 export default Cards;

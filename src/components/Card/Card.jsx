@@ -8,7 +8,6 @@ import { LogStateContext } from "../../Providers/LogState";
 
 const Card = ({card}) => {
   const {isAuth} = useContext(LogStateContext)
-  
   const dispatch = useDispatch()
   const favorites = useSelector(state=>state.favorites.userFavorites)
   const displayAuthor = card.authors?.[0]?.name || 'Anonymous'
