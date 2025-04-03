@@ -1,5 +1,5 @@
 .blockSearch{
-    width: 100vw;
+    max-width: 100vw;
     background-image: url('../../assets/images/backgroundSearch.jpg') ;
     height: 160px;
     background-size: cover;

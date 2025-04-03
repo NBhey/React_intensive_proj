@@ -5,7 +5,7 @@
   }
 
   .Favorites{
-    min-height: 94vh;
+    min-height: calc(100vh - 65px);
   }
 
   .Cards-wrapper{
