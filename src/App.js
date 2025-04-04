@@ -26,7 +26,7 @@ function App() {
           <Route path = '/' element = {<Home tittle={resources.pages.home.tittle}/>}/>
           <Route path='/SignInPage' element = {<SignInPage/>}/>
           <Route path='/SignUpPage' element = {<SignUpPage/>}/>
-          <Route path ='/Favorites' element = {<Favorites/>}/>
+          <Route path ='/Favorites' element = {<Favorites tittle={resources.pages.favorites.tittle}/>}/>
           <Route path='/book/:id' element={<Book/>}/>
           <Route path='/history' element={<History tittle={resources.pages.history.tittle}/>}/>
           <Route path='/search' element={<SearchPage tittle={resources.pages.search.tittle}/>}/>
