@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import Button from "../Button/Button";
 import "./Header.css";
 import { LogStateContext } from "../../Providers/LogState";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 
  
