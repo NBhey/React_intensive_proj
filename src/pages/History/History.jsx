@@ -1,38 +1,33 @@
 import React, { useEffect, useState } from 'react';
-import './history.css';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+
 import TittlePages from '../../components/TittlePages/TittlePages';
-import { Link, useNavigate } from 'react-router-dom';
+
 import { setSearchObject } from '../../store/actions/actionsSearch';
 
-function History({tittle}) {
- 
-  const [searchHistoryArr, setSearchHistoryArr]=useState([]);
-  const dispatch=useDispatch();
-  const searchHistory=useSelector((state)=>state.searchHistory.searchHistory);
-  
-  const navigate=useNavigate();
+import './history.css';
 
-  useEffect(()=>{
-    (localStorage.setItem('searchParams', JSON.stringify(searchHistory)));
+function History({ tittle }) {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const searchHistory = useSelector((state) => state.searchHistory.searchHistory);
 
-    
-  },[searchHistory]);
+  useEffect(() => {
+    localStorage.setItem('searchParams', JSON.stringify(searchHistory));
+  }, [searchHistory]);
 
-  const navToSearch=(item)=>{
+  const navToSearch = (item) => {
     dispatch(setSearchObject(item));
     navigate('/search');
-  }
-  console.log(searchHistory);
+  };
+
   return (
-    
     <div className="wrapper">
-      <TittlePages tittle={tittle}/>
-      <ul className='history'>
+      <TittlePages tittle={tittle} />
+      <ul className="history">
         {searchHistory.map((item) => (
-          
-            <li onClick={()=>navToSearch(item)}>{item.search}</li>
-          
+          <li key={item.search} onClick={() => navToSearch(item)}>{item.search}</li> //вынести в отдельный блок
         ))}
       </ul>
     </div>

@@ -3,7 +3,7 @@ import down from '../../assets/images/down.svg';
 import './customSelect.css';
 
 function CustomSelect({labels, onSelect, isOpen, setIsOpen, close}) {
-    // const [isOpen, setIsOpen]=useState(false);
+    
     const [selectOption, setSelectOption]=useState(labels[0].label)
     const toggleDrop=()=>{
         let open=close? false: !isOpen;
@@ -13,7 +13,7 @@ function CustomSelect({labels, onSelect, isOpen, setIsOpen, close}) {
         setSelectOption(option.label);
         onSelect(option.parametr);
     }
-    //храним состояние компонента тут и в серче-редакс
+    
     return (
         <div className='customSelect' onClick={toggleDrop}>
             <div className='customSelect_container'>

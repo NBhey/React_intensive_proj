@@ -1,6 +1,6 @@
 .container_filter{
     position: absolute;
-
+    z-index: 20;
 }
 .filter{
     background-color: #78A678;
@@ -11,7 +11,7 @@
     padding: 3% 6%;
     border: 3px solid white;
     flex-direction: column;
-    z-index: 20;
+    
     box-sizing: border-box;
     aspect-ratio: 1.3 / 1;
 }
