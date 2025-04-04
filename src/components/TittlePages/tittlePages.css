@@ -1,5 +1,13 @@
 .wrapper_tittle{
     text-align: start;
     margin: 20px;
-    color: #112317;;
+    color: #112317;
+    display: flex;
+    align-items: center;
+}
+.wrapper_tittle span{
+    color: #112317;
+    padding: 20px;
+    font-size: 23px;
+    font-weight: 600;
 }

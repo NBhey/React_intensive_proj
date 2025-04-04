@@ -1,6 +1,6 @@
-import React from "react";
-import Card from "../Card/Card";
-import "./Cards.css";
+import React from 'react';
+import Card from '../Card/Card';
+import './Cards.css';
 
 const Cards = ({ books, loading }) => {
   return (
@@ -14,10 +14,9 @@ const Cards = ({ books, loading }) => {
           </ul>
         {loading && <div className="loading">Загрузка...</div>}
       </div>
+
     </section>
   );
 };
-
-
 
 export default Cards;
