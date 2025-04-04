@@ -4,7 +4,7 @@ import { useDispatch} from 'react-redux';
 import { setSearchObject} from '../../store/actions/actionsSearch';
 import { addSearchHistory } from '../../store/actions/actionSearchHistory';
 
-import Filter from '../Filter/Filter';
+import Filter from '../filter/Filter';
 import Suggestion from '../Suggestion/Suggestion';
 
 import { getBooks } from '../../servises/api/getBooks';
