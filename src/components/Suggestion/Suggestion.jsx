@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './suggestion.css';
+
 function Suggestion({ suggestions }) {
   return (
     <div className="container_suggestion">

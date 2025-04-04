@@ -14,7 +14,6 @@ const Cards = ({ books, loading }) => {
           </ul>
         {loading && <div className="loading">Загрузка...</div>}
       </div>
-
     </section>
   );
 };

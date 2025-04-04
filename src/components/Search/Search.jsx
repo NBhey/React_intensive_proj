@@ -1,32 +1,28 @@
-import React, { useState, useEffect } from 'react';
-import { getBooks } from '../../servises/api/getBooks';
+import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch} from 'react-redux';
+import { setSearchObject} from '../../store/actions/actionsSearch';
+import { addSearchHistory } from '../../store/actions/actionSearchHistory';
 
 import Filter from '../filter/Filter';
 import Suggestion from '../Suggestion/Suggestion';
 
+import { getBooks } from '../../servises/api/getBooks';
+
 import searchImg from '../../assets/images/search.svg';
 import filterImg from '../../assets/images/filter.svg';
 
-// import { debounce } from '../../utils/debounce';
-import debounce from 'lodash.debounce';
-import { useDispatch, useSelector } from 'react-redux';
-import { setSearchObject, clearSearchObject } from '../../store/actions/actionsSearch';
-import { addSearchHistory } from '../../store/actions/actionSearchHistory';
 import './search.css';
-import { useNavigate } from 'react-router-dom';
 
 function Search() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
-  const searchHistory=useSelector((state)=>state.searchHistory.searchHistory);
-
-  const searchObject = useSelector((state) => state.search.searchObject.search);
+  const searchRef=useRef();
 
   const [params, setParam] = useState({ search: '', lang: '', sort: '' }); //нужен редакс
   const [isOpenFilter, setIsOpenFilter] = useState(false);
   const [OpenSuggestion, setOpenSuggestion] = useState(false);
-  const [inputValue, setInputValue] = useState(''); //мб реф использовать?
+  const [inputValue, setInputValue] = useState(''); 
   const [suggestion, setSuggestion] = useState([]);
 
   const onClickSearch = () => {
@@ -36,7 +32,9 @@ function Search() {
     dispatch(addSearchHistory(params));
     
   };
-
+  const onBlur=()=>{
+    setOpenSuggestion(false);
+  }
   const onChangeInput = (e) => {
     setInputValue(e.target.value);
     setParam({ ...params, search: e.target.value });
@@ -54,7 +52,7 @@ function Search() {
   };
   const onSelectSort = (sort) => {
     setParam({ ...params, sort: sort });
-  }; //ее можно убрать
+  };
 
   const onOpenFilter = () => {
     setIsOpenFilter(!isOpenFilter);
@@ -65,7 +63,6 @@ function Search() {
       const res = await getBooks(args);
       const newRes = res.data.results.slice(0, 5);
       if(newRes.length>0){
-        console.log('xnj', newRes.length)
         setSuggestion(newRes);
         setOpenSuggestion(true);
       }
@@ -93,6 +90,8 @@ function Search() {
               onChange={(e) => onChangeInput(e)}
               onKeyDown={onSearchKeyDown}
               type="text"
+              ref={searchRef}
+              onBlur={onBlur}
               placeholder="Введите текст для поиска"
             />
             <span className="search_btn" onClick={onOpenFilter}>
