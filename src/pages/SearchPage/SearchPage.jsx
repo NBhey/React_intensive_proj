@@ -16,7 +16,7 @@ function SearchPage({ tittle }) { //сохранить состояние при
     try {
       setLoading(true);
       const res = await getBooks(args);
-      const newRes = res.data.results.slice(0, 5);
+      const newRes = res.data.results;
       setBooks(newRes);
       setLoading(false);
     } catch (error) {

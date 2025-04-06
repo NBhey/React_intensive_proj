@@ -1,10 +1,10 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useDeferredValue, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch} from 'react-redux';
 import { setSearchObject} from '../../store/actions/actionsSearch';
 import { addSearchHistory } from '../../store/actions/actionSearchHistory';
 
-import Filter from '../filter/Filter';
+import Filter from '../Filter/Filter';
 import Suggestion from '../Suggestion/Suggestion';
 
 import { getBooks } from '../../servises/api/getBooks';
@@ -33,13 +33,16 @@ function Search() {
     
   };
   const onBlur=()=>{
-    setOpenSuggestion(false);
+    setTimeout(()=>{
+
+      setOpenSuggestion(false);
+    }, 500);
   }
   const onChangeInput = (e) => {
     setInputValue(e.target.value);
-    setParam({ ...params, search: e.target.value });
+    setParam(prevParams=>({ ...prevParams, search: e.target.value }));
   };
-
+ 
   const onSearchKeyDown = (e) => {
     if (e.key === 'Enter') {
       e.preventDefault();
@@ -48,10 +51,10 @@ function Search() {
   };
 
   const onSelectLanguage = (lang) => {
-    setParam({ ...params, lang: lang });
+    setParam(prevParams=>({ ...prevParams, lang: lang }));
   };
   const onSelectSort = (sort) => {
-    setParam({ ...params, sort: sort });
+    setParam(prevParams=>({ ...prevParams, sort: sort }));
   };
 
   const onOpenFilter = () => {
